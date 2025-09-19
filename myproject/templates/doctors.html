@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Project</title>
+</head>
+<body style="background-color: rgb(15, 14, 14);">
+    <h1 style="text-align: center;color: white;"><u>Hospital Project</u></h1>
+    <h2 style="text-align: center;color: white;">Doctors List</h2>
+    {%for p in data%}
+    <div style="background-color: rgb(235, 242, 240);font-size:large; width: 300px;">
+        <h3>Name:{{p.name}}</h3>
+        <h4>Specialization:{{p.specialization}}</h4>
+        <h4>OP Time:{{p.time}}</h4>
+    </div>
+        {% endfor %}   
+
+</body>
+</html>

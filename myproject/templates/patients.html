@@ -1,0 +1,14 @@
+
+<body style="background-color: rgb(15, 14, 14);">
+    <h1 style="text-align: center;color: white;"><u>Hospital Project</u></h1>
+    <h2 style="text-align: center;color: white;">patients List</h2>
+        {%for p in list%}
+    <div style="background-color: rgb(235, 242, 240);font-size:large; width: 300px;">
+        <h3>Name:{{p.name}}</h3>
+        <h4>age:{{p.age}}</h4>
+        <h4>Disease:{{p.disease}}</h4>
+    </div>
+        {% endfor %}
+    
+
+</body>

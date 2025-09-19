@@ -1,0 +1,23 @@
+<!-- <h1><u>Hello Python Django </u></h1>
+<p>Django is a high-level web framework written in Python that helps developers build web applications quickly and efficiently.</p> -->
+ 
+
+
+
+
+
+{%for x in person%}                               <!--python for loop tag start-->
+<h1>Name :{{x.name|upper}}</h1>                     <!--upper is filter tag-->
+<p>Place:{{x.place|default:'No data available'}}</p> <!--default is filter tag -->
+<p>Age:{{x.age|default:'No data available'}}</p>
+{% if x.details %}                                   <!--if-else tag stament start -->
+ <p>Details was a sucess at that time</p>
+{% else %}
+<p>Details was a Failer</p>
+{% endif %}                                                 <!--if end-->
+{% endfor %}                                                <!--for loop end -->
+
+
+
+
+
