@@ -16,7 +16,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from django_app import views
+from django_app import views as django_views
+from accounts import views as accounts_views
 
 
 urlpatterns = [
@@ -25,12 +26,15 @@ urlpatterns = [
     # path('list/',views.patient_list),
     # path('html/',views.hello),
     # path('Dr/',views.doctor_list),
-    # path('', views.list_patients,name="list_patients"),
-    # path('add/', views.add_patient,name="add_patient"),
-    # path('delete/<int:id>/', views.delete_patient, name="delete_patient"),
-    path('login/', views.login_view, name='login'),
-    path('logout/', views.logout_view, name='logout'),
-    path('', views.home, name='home'),
+
+    path('', django_views.list_patients,name="list_patients"),
+    path('add/',django_views.add_patient,name="add_patient"),
+    path('delete/<int:id>/',django_views.delete_patient, name="delete_patient"),
+
+
+    path('login/', accounts_views.login_view, name='login'),
+    path('logout/', accounts_views.logout_view, name='logout'),
+    path('home/', accounts_views.home, name='home'),
 ]
 
 

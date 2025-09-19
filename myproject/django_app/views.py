@@ -1,11 +1,7 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse
-# from .models import Patient
+from .models import Patient
 from django.shortcuts import get_object_or_404
-from django.contrib.auth import authenticate, login, logout
-from django.contrib.auth.decorators import login_required
-from .models import login
-
 
 # Create your views here.
 
@@ -102,41 +98,20 @@ def doctor_list(request):
     ]}
     return render(request,'doctors.html', doctors_data)
 #---------------------------------------------------------------------------------------------------------------------------------------------------------------------
-# def list_patients(request):
-#     patients = Patient.objects.all()
-#     return render(request, 'hospital.html', {"patients": patients})
+def list_patients(request):
+    patients = Patient.objects.all()
+    return render(request, 'hospital.html', {"patients": patients})
 
-# def add_patient(request):
-#     if request.method == "POST":
-#         name = request.POST.get("name")
-#         age = request.POST.get("age")
-#         disease=request.POST.get("disease")
-#         if name:
-#             Patient.objects.create(name=name,age=age,disease=disease)
-#     return redirect("list_patients")
-# def delete_patient(request, id):
-#     patient = get_object_or_404(Patient, id=id)
-#     if request.method == "POST":
-#         patient.delete()
-#     return redirect("list_patients")
-#----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-def login_view(request):
+def add_patient(request):
     if request.method == "POST":
-        username = request.POST.get("username")
-        password = request.POST.get("password")
-        user = authenticate(request, username=username, password=password)
-        if user is not None:
-            login(request, user)
-            return redirect("home")
-        else:
-            return render(request, "login.html", {"error": "Invalid username or password"})
-    return render(request, "login.html")
-
-def logout_view(request):
-    logout(request)
-    return redirect("login")
-
-@login_required
-def home(request):
-    return render(request, "login.html")
+        name = request.POST.get("name")
+        age = request.POST.get("age")
+        disease=request.POST.get("disease")
+        if name:
+            Patient.objects.create(name=name,age=age,disease=disease)
+    return redirect("list_patients")
+def delete_patient(request, id):
+    patient = get_object_or_404(Patient, id=id)
+    if request.method == "POST":
+        patient.delete()
+    return redirect("list_patients")
