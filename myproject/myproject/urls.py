@@ -23,11 +23,11 @@ from accounts import views as accounts_views
 urlpatterns = [
     path('admin/', admin.site.urls),
     # path('hi/',views.greet),
-    # path('list/',views.patient_list),
+    path('list/',django_views.patient_list),
     # path('html/',views.hello),
-    # path('Dr/',views.doctor_list),
+    path('Dr/',django_views.doctor_list),
 
-    path('', django_views.list_patients,name="list_patients"),
+    path('HOME/', django_views.list_patients,name="list_patients"),
     path('add/',django_views.add_patient,name="add_patient"),
     path('delete/<int:id>/',django_views.delete_patient, name="delete_patient"),
 
@@ -35,6 +35,8 @@ urlpatterns = [
     path('login/', accounts_views.login_view, name='login'),
     path('logout/', accounts_views.logout_view, name='logout'),
     path('home/', accounts_views.home, name='home'),
+    path('hi/',django_views.greet1),
+    path('All/',django_views.project),
 ]
 
 

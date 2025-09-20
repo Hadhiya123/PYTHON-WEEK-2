@@ -115,3 +115,9 @@ def delete_patient(request, id):
     if request.method == "POST":
         patient.delete()
     return redirect("list_patients")
+
+def greet1(request):
+    return render(request,'hello.html')
+
+def project(request):
+    return render(request,'My Project.html')
